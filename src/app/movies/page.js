@@ -1,4 +1,4 @@
-'use static';
+'use client';
 import Axios from 'axios';
 import styles from '../styles/common.module.css';
 import MovieCard from '../components/MovieCard';
