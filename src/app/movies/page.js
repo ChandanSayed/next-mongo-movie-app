@@ -2,6 +2,7 @@
 import Axios from 'axios';
 import styles from '../styles/common.module.css';
 import MovieCard from '../components/MovieCard';
+
 const Movie = async () => {
   let movieData;
   const options = {
