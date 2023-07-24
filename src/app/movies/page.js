@@ -1,33 +1,22 @@
 'use client';
-import Axios from 'axios';
 import styles from '../styles/common.module.css';
 import MovieCard from '../components/MovieCard';
 
 const Movie = async () => {
-  let movieData;
+  const url = 'https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en';
+
   const options = {
     method: 'GET',
-    url: 'https://netflix54.p.rapidapi.com/search/',
-    params: {
-      query: 'stranger',
-      offset: '0',
-      limit_titles: '50',
-      limit_suggestions: '20',
-      lang: 'en'
-    },
     headers: {
-      'content-type': 'application/octet-stream',
-      'X-RapidAPI-Key': 'b236cbbb75mshfb0524c6ee1441ep10608ejsn3ee83f764649',
+      'X-RapidAPI-Key': '4bf5bfa050mshf4c9bcf0a4dbef9p1056d6jsn4ccbc91b7a27',
       'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
     }
   };
-  try {
-    const response = await Axios.request(options);
 
-    movieData = response.data.titles;
-  } catch (error) {
-    console.error(error);
-  }
+  const res = await fetch(url, options);
+  const data = await res.json();
+  console.log(data);
+  const movieData = data.titles;
   return (
     <>
       <section className={styles.movieSection}>
